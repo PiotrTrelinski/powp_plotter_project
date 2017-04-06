@@ -43,7 +43,7 @@ public class TestPlotSoftPatterns
 		context.addDriver("Client Plotter", clientPlotter);
 		Application.getComponent(DriverManager.class).setCurrentPlotter(clientPlotter);
 		
-		IPlotter plotter = new MyAdapter();
+		IPlotter plotter = new MyAdapter(context.getFreePanel());
 		context.addDriver("Buggy Simulator", plotter);
 
 		context.updateDriverInfo();
@@ -58,7 +58,7 @@ public class TestPlotSoftPatterns
 		DefaultDrawerFrame defaultDrawerWindow = DefaultDrawerFrame.getDefaultDrawerFrame();
         context.addComponentMenuElementWithCheckBox(DrawPanelController.class, "Default Drawer Visibility", 
         		new SelectChangeVisibleOptionListener(defaultDrawerWindow), true);
-        defaultDrawerWindow.setVisible(true);
+        defaultDrawerWindow.setVisible(false);
 	}
 	
 	/**
