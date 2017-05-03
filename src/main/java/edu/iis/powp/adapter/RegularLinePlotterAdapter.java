@@ -5,15 +5,18 @@ import edu.kis.powp.drawer.panel.DrawPanelController;
 import edu.kis.powp.drawer.shape.ILine;
 import edu.kis.powp.drawer.shape.LineFactory;
 
-public class LinePlotterAdapter implements IPlotter
+
+/**
+ * Plotter adapter to drawer with several bugs. 
+ */
+public class RegularLinePlotterAdapter implements IPlotter
 { 
 	private int startX = 0, startY = 0;
-	private DrawPanelController controller;
-	private ILine line;
-    public LinePlotterAdapter(DrawPanelController controller, ILine line) {
+	DrawPanelController controller;
+	
+    public RegularLinePlotterAdapter(DrawPanelController controller) {
 		super();
 		this.controller = controller;
-		this.line = line;
 	}
     
 	@Override
@@ -26,6 +29,7 @@ public class LinePlotterAdapter implements IPlotter
     @Override
     public void drawTo(int x, int y)
     {
+        ILine line = LineFactory.getBasicLine();
     	line.setStartCoordinates(this.startX, this.startY);
         line.setEndCoordinates(x, y);
 		controller.drawLine(line);
@@ -35,7 +39,6 @@ public class LinePlotterAdapter implements IPlotter
     @Override
     public String toString()
     {
-        return "LinePlotterAdapter";
+        return "RegularLinePlotterAdapter";
     }
 }
-
