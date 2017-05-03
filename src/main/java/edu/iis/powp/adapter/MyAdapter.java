@@ -35,8 +35,8 @@ public class MyAdapter implements IPlotter
         ILine line = LineFactory.getBasicLine();
     	line.setStartCoordinates(this.startX, this.startY);
         line.setEndCoordinates(x, y);
-
 		controller.drawLine(line);
+		setPosition(x,y);
     }
 
     @Override
