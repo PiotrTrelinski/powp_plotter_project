@@ -3,6 +3,7 @@ package edu.iis.powp.adapter;
 import javax.swing.JPanel;
 
 import edu.iis.client.plottermagic.IPlotter;
+import edu.iis.powp.app.Context;
 import edu.kis.powp.drawer.panel.DrawPanelController;
 import edu.kis.powp.drawer.shape.ILine;
 import edu.kis.powp.drawer.shape.LineFactory;
@@ -16,10 +17,9 @@ public class LinePlotterAdapter implements IPlotter
 	private int startX = 0, startY = 0;
 	DrawPanelController controller;
 	
-    public LinePlotterAdapter(JPanel drawArea) {
+    public LinePlotterAdapter(DrawPanelController controller) {
 		super();
-		controller = new DrawPanelController();
-		controller.initialize(drawArea);
+		this.controller = controller;
 	}
     
 	@Override

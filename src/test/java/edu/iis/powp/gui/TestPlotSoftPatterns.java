@@ -45,7 +45,7 @@ public class TestPlotSoftPatterns
 		context.addDriver("Client Plotter", clientPlotter);
 		Application.getComponent(DriverManager.class).setCurrentPlotter(clientPlotter);
 		
-		IPlotter plotter = new LinePlotterAdapter(context.getFreePanel());
+		IPlotter plotter = new LinePlotterAdapter(ApplicationWithDrawer.getDrawPanelController());
 		context.addDriver(plotter.toString(), plotter);
 
 		context.updateDriverInfo();
