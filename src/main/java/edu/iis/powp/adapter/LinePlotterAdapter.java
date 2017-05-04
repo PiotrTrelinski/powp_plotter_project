@@ -1,6 +1,7 @@
 package edu.iis.powp.adapter;
 
 import edu.iis.client.plottermagic.IPlotter;
+import edu.iis.powp.command.CommandSetPosition;
 import edu.kis.powp.drawer.panel.DrawPanelController;
 import edu.kis.powp.drawer.shape.ILine;
 
@@ -28,7 +29,8 @@ public class LinePlotterAdapter implements IPlotter
     	line.setStartCoordinates(this.startX, this.startY);
         line.setEndCoordinates(x, y);
 		controller.drawLine(line);
-		setPosition(x,y);
+		CommandSetPosition command = new CommandSetPosition(x, y);
+		command.execute(this);
     }
 
     @Override
