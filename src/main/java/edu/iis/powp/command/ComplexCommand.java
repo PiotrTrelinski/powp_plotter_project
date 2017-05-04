@@ -15,3 +15,5 @@ public class ComplexCommand extends ArrayList<PlotterCommand> implements Plotter
 		}
 	}
 }
+
+//Przez posiadanie tej klasy wykorzystywany jest wzorzec Composite
